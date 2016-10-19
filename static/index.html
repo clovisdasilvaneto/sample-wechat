@@ -20,68 +20,73 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <div class="page">
-    <section class="marvel-device nexus5">
-      <div class="top-bar"></div>
-      <div class="sleep"></div>
-      <div class="volume"></div>
-      <div class="camera"></div>
-      <div class="screen">
-        <div class="screen-container">
-          <div class="status-bar bg-dark">
-            <div class="time"></div>
-            <div class="battery">
-              <i class="zmdi zmdi-battery"></i>
-            </div>
-            <div class="network">
-              <i class="zmdi zmdi-network"></i>
-            </div>
-            <div class="wifi">
-              <i class="zmdi zmdi-wifi-alt-2"></i>
-            </div>
-            <div class="star">
-              <i class="zmdi zmdi-star"></i>
-            </div>
-          </div>
-          <article class="chat chat-login">
-				<header>
-					<h1 class="chat-login--logo">WeChat</h1>
-				</header>
-				<form class="chat-login--form" action="/chat.html">
-					<div class="chat-login--fields">
-						<input type="text" id="user-name" placeholder="Your user name...">
-						<label for="user-name">
-							<span>User name</span>
-							<svg class="chat-login--line" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
-								<path d="m0,0l404,0l0,77l-404,0l0,-77z"></path>
-							</svg>
-						</label>
-					</div>
+	<div class="page">
+		<section class="marvel-device nexus5">
+		  <div class="top-bar"></div>
+		  <div class="sleep"></div>
+		  <div class="volume"></div>
+		  <div class="camera"></div>
+		  <div class="screen">
+			<div class="screen-container">
+			  <div class="status-bar bg-dark">
+				<div class="time"></div>
+				<div class="battery">
+				  <i class="zmdi zmdi-battery"></i>
+				</div>
+				<div class="network">
+				  <i class="zmdi zmdi-network"></i>
+				</div>
+				<div class="wifi">
+				  <i class="zmdi zmdi-wifi-alt-2"></i>
+				</div>
+				<div class="star">
+				  <i class="zmdi zmdi-star"></i>
+				</div>
+			  </div>
+			  <article class="chat chat-login">
+					<header>
+						<h1 class="chat-login--logo">WeChat</h1>
+					</header>
+					<form class="chat-login--form" action="/chat.html">
+						<div class="chat-login--fields">
+							<input type="text" id="user-name" placeholder="Your user name...">
+							<label for="user-name">
+								<span>User name</span>
+								<svg class="chat-login--line" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+									<path d="m0,0l404,0l0,77l-404,0l0,-77z"></path>
+								</svg>
+							</label>
+						</div>
 
-					<div class="chat-login--fields">
-						<input type="password" id="password" placeholder="Password">
-						<label for="password">
-							<span>Passwod</span>
-							<svg class="chat-login--line" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
-								<path d="m0,0l404,0l0,77l-404,0l0,-77z"></path>
-							</svg>
-						</label>
-					</div>
+						<div class="chat-login--fields">
+							<input type="password" id="password" placeholder="Password">
+							<label for="password">
+								<span>Passwod</span>
+								<svg class="chat-login--line" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+									<path d="m0,0l404,0l0,77l-404,0l0,-77z"></path>
+								</svg>
+							</label>
+						</div>
 
-					<input type="submit" value="Login">
-				</form>
+						<input type="submit" value="Login">
+						<p class="center-text">Or signup with</p>
 
-				<footer class="chat-login--footer"><a href="#">WeDeploy <span>TM</span></a></footer>
-          </article>
-        </div>
-      </div>
-    </section>
-  </div>
+						<div class="chat-socials--button">
+							<a href="#" class="facebook-button positive"><i class="zmdi zmdi-facebook"></i></a>
+							<a href="#" class="google-plus-button assertive"><i class="zmdi zmdi-google-plus"></i></a>
+						</div>
+					</form>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
-  <script src="scripts/vendor/socket.js"></script>
-  <script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
-  <script src="scripts/main.js"></script>
+					<footer class="chat-login--footer"><a href="#">WeDeploy <span>TM</span></a></footer>
+			  </article>
+			</div>
+		  </div>
+		</section>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+	<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
+	<script src="scripts/main.js"></script>
 </body>
 </html>
