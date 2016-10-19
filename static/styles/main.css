@@ -11,27 +11,40 @@
 }
 
 html {
-  box-sizing: border-box;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  padding: 0;
-  height: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: "Roboto", sans-serif;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+
+.positive {
+	background: cornflowerblue;
+}
+
+.text-light {
+	color: #fff;
+}
+
+.assertive {
+	background: orangered;
 }
 
 .page {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .marvel-device .screen {
@@ -144,9 +157,17 @@ body {
 	background: #00d46a;
 	color: #fff;
 	border-radius: 4px;
-	margin: 1.8rem 0;
+	margin: 1.8rem 0 0;
 	font-weight: 600;
 	cursor: pointer;
+}
+
+.chat-login--form p {
+	font-size: 0.8rem;
+}
+
+.center-text {
+	text-align: center;
 }
 
 .chat-login--fields input {
@@ -205,38 +226,76 @@ body {
 	transform: translate3d(0, 2.4rem,0);
 }
 
+/* Chat Socials Buttons */
+.chat-socials--button {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+	overflow: hidden;
+}
+
+.chat-socials--button a {
+	width: 49%;
+	text-align: center;
+	border-radius: 4px;
+	height: 2.4rem;
+	color: #fff;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	font-size: 1.4rem;
+}
+
+.chat-socials--button i {
+	-webkit-transition: ease-out .3s transform;
+	-moz-transition: ease-out .3s transform;
+	-ms-transition: ease-out .3s transform;
+	-o-transition: ease-out .3s transform;
+	transition: ease-out .3s transform;
+}
+
+.chat-socials--button a:hover i {
+	-webkit-transform: rotateZ(-19deg) scale(2);
+	-moz-transform: rotateZ(-19deg) scale(2);
+	-ms-transform: rotateZ(-19deg) scale(2);
+	-o-transform: rotateZ(-19deg) scale(2);
+	transform: rotateZ(-19deg) scale(2);
+}
+
 /* Chat */
 .chat {
-  height: calc(100% - 69px);
+	height: calc(100% - 69px);
 }
 
 .chat-container {
-  height: 100%;
+	height: 100%;
 }
 
 /* User Bar */
 
 .user-bar {
-  height: 55px;
-  background: #005e54;
-  color: #fff;
-  padding: 0 8px;
-  font-size: 24px;
-  position: relative;
-  z-index: 1;
+	height: 55px;
+	background: #005e54;
+	color: #fff;
+	padding: 0 8px;
+	font-size: 24px;
+	position: relative;
+	z-index: 1;
 }
 
 .user-bar:after {
-  content: "";
-  display: table;
-  clear: both;
+	content: "";
+	display: table;
+	clear: both;
 }
 
 .user-bar div {
-  float: left;
-  transform: translateY(-50%);
-  position: relative;
-  top: 50%;
+	float: left;
+	transform: translateY(-50%);
+	position: relative;
+	top: 50%;
 }
 
 .user-bar .actions {
@@ -245,7 +304,61 @@ body {
 }
 
 .user-bar .actions.more {
-  margin: 0 12px 0 32px;
+	position: relative;
+	margin: 0 12px 0 32px;
+}
+
+.user-bar .actions.more label {
+	display: block;
+	cursor:pointer;
+}
+
+.user-bar .actions.more ul {
+	position: absolute;
+	right: 0;
+	background: #fff;
+	border-radius: 4px;
+	top: -25px;
+	color: #333;
+	list-style: none;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.58);
+	font-size: 0.9rem;
+	transition: all cubic-bezier(0, 0, 0.01, 1.45) .5s;
+	width: 0px;
+	padding: 0;
+	overflow: hidden;
+	outline: none;
+}
+
+.user-bar .actions.more.opened ul {
+	width: 170px;
+	padding: 0 1rem 1rem;
+}
+
+.user-bar .actions.more i {
+	cursor: pointer;
+	transition: all ease-out .3s;
+}
+.user-bar .actions.more:hover i {
+	transform: scale(1.2) rotateZ(90deg)
+}
+
+.user-bar .actions.more ul a {
+	text-decoration: none;
+	color: #000;
+	margin-top: 1rem;
+	opacity: 0;
+	display: inline-block;
+	transition: all linear .2 -0.3s;
+}
+
+.user-bar .actions.more a:hover {
+	text-decoration: underline;
+}
+
+.user-bar .actions.more.opened a {
+	opacity:1;
+	transition: all linear .2s .4s;
 }
 
 .user-bar .actions.attachment {
@@ -473,7 +586,7 @@ body {
 }
 
 .color-13 {
-    color: #b04632 !important
+	color: #b04632 !important
 }
 
 .color-14 {
@@ -531,26 +644,26 @@ body {
 
 .metadata .tick svg:first-child {
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+		  backface-visibility: hidden;
   -webkit-transform: perspective(800px) rotateY(180deg);
-          transform: perspective(800px) rotateY(180deg);
+		  transform: perspective(800px) rotateY(180deg);
 }
 
 .metadata .tick svg:last-child {
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+		  backface-visibility: hidden;
   -webkit-transform: perspective(800px) rotateY(0deg);
-          transform: perspective(800px) rotateY(0deg);
+		  transform: perspective(800px) rotateY(0deg);
 }
 
 .metadata .tick-animation svg:first-child {
   -webkit-transform: perspective(800px) rotateY(0);
-          transform: perspective(800px) rotateY(0);
+		  transform: perspective(800px) rotateY(0);
 }
 
 .metadata .tick-animation svg:last-child {
   -webkit-transform: perspective(800px) rotateY(-179.9deg);
-          transform: perspective(800px) rotateY(-179.9deg);
+		  transform: perspective(800px) rotateY(-179.9deg);
 }
 
 /* Compose */
@@ -654,40 +767,40 @@ body {
 
 @media (max-width: 768px) {
   .marvel-device.nexus5 {
-    border-radius: 0;
-    flex: none;
-    padding: 0;
-    max-width: none;
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
+	border-radius: 0;
+	flex: none;
+	padding: 0;
+	max-width: none;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
   }
 
   .marvel-device > .screen .chat {
-    visibility: visible;
+	visibility: visible;
   }
 
   .marvel-device {
-    visibility: hidden;
+	visibility: hidden;
   }
 
   .marvel-device .status-bar {
-    display: none;
+	display: none;
   }
 
   .screen-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
   }
 
   .conversation {
-    height: calc(100vh - 55px);
+	height: calc(100vh - 55px);
   }
   .conversation .conversation-container {
-    height: calc(100vh - 120px);
+	height: calc(100vh - 120px);
   }
 }
 
