@@ -6,44 +6,78 @@ const AUTH_DOMAIN = 'http://auth.'+ DOMAIN;
 const REDIRECT_DOMAIN = 'http://static.'+ DOMAIN;
 
 const ELEMS = {
-  conversation: document.querySelector('.conversation-container'),
-  form: document.querySelector('.conversation-compose'),
-  chatStatus: document.querySelector('#chat-status'),
-  chatLogin: document.querySelector('#chat-login'),
-  phoneButton: document.querySelector('.actions.phone')
+	conversation: document.querySelector('.conversation-container'),
+	form: document.querySelector('.conversation-compose'),
+	chatStatus: document.querySelector('#chat-status'),
+	chatLogin: document.querySelector('#chat-login'),
+	phoneButton: document.querySelector('.actions.phone'),
+	informationsMenu: document.querySelector('.actions.more')
 };
 
+const LOGIN_ELEMS = {
+	facebookButton: document.querySelector('.facebook-button'),
+	googleButton: document.querySelector('.google-button')
+}
 
 function main () {
-  let user = initFakeUser();
+	let user = initFakeUser();
 
-  initLogin(ELEMS.phoneButton, AUTH_DOMAIN, REDIRECT_DOMAIN, user);
-  initConversation(MESSAGES_DOMAIN, user, ELEMS.conversation);
-  listenToMessagesReceived(MESSAGES_DOMAIN, user, ELEMS.conversation);
-  listenToMessageSubmission(MESSAGES_DOMAIN, ELEMS.form, user, ELEMS.conversation);
+	// initLogin(ELEMS.phoneButton, AUTH_DOMAIN, REDIRECT_DOMAIN, user);
+	if(ELEMS.conversation){
+		initConversation(MESSAGES_DOMAIN, user, ELEMS.conversation);
+		listenToMessagesReceived(MESSAGES_DOMAIN, user, ELEMS.conversation);
+		listenToMessageSubmission(MESSAGES_DOMAIN, ELEMS.form, user, ELEMS.conversation);
+		bindInformationsMenu(ELEMS);
+	}else {
+		listenToFacebookLogin(LOGIN_ELEMS, AUTH_DOMAIN, REDIRECT_DOMAIN);
+	}
+
 }
-
 
 function initLogin (loginElement, authEndpoint, redirectEndpoint, user) {
-  let auth = WeDeploy.auth(authEndpoint);
-  let provider = new auth.provider.Google();
+	let auth = WeDeploy.auth(authEndpoint);
+	let provider = new auth.provider.Google();
 
-  provider.setProviderScope('email');
-  provider.setRedirectUri(redirectEndpoint);
+	provider.setProviderScope('email');
+	provider.setRedirectUri(redirectEndpoint);
 
-  loginElement.addEventListener('click', () => {
-    auth.signInWithRedirect(provider);
-  });
+	loginElement.addEventListener('click', () => {
+	auth.signInWithRedirect(provider);
+	});
 
 
-  auth.onSignIn((loginDetails) => {
-    let {name} = loginDetails;
+	auth.onSignIn((loginDetails) => {
+	let {name} = loginDetails;
 
-    chatLogin.innerHTML = name;
-    user.name = name;
-  });
+	chatLogin.innerHTML = name;
+	user.name = name;
+	});
 }
 
+function bindInformationsMenu(elems){
+	let info = elems.informationsMenu;
+	info.addEventListener('click', function(){
+		info.classList.add('opened');
+	});
+
+	elems.conversation.addEventListener('click', function(e) {
+		info.classList.remove('opened');
+	})
+}
+
+
+	function listenToFacebookLogin(loginElement, authEndpoint, redirectEndpoint){
+	console.log('pegou')
+	let auth = WeDeploy.auth();
+	let provider = new auth.provider.Facebook();
+	provider.setProviderScope("email");
+
+	auth.signInWithRedirect();
+
+	auth.onSignIn((user)=>{
+
+	});
+}
 
 /**
  * Initializes the user, either from localstorage or by
