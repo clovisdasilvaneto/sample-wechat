@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WeChat</title>
+
+	<meta name="theme-color" content="#054d44">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, initial-scale=1">
+
+	<link rel="manifest" href="manifest.json">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="styles/vendor/devices.min.css">
+	<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<div class="page">
+	<div class="marvel-device nexus5">
+		<div class="top-bar"></div>
+		<div class="sleep"></div>
+		<div class="volume"></div>
+		<div class="camera"></div>
+		<div class="screen">
+			<div class="screen-container">
+				<div class="status-bar">
+					<div class="time"></div>
+					<div class="battery">
+						<i class="zmdi zmdi-battery"></i>
+					</div>
+					<div class="network">
+						<i class="zmdi zmdi-network"></i>
+					</div>
+					<div class="wifi">
+						<i class="zmdi zmdi-wifi-alt-2"></i>
+					</div>
+					<div class="star">
+						<i class="zmdi zmdi-star"></i>
+					</div>
+				</div>
+				<div class="chat">
+					<div class="chat-container">
+						<div class="user-bar">
+							<div class="back">
+								<a href="/" class="text-light"><i class="zmdi zmdi-arrow-left"></i></a>
+							</div>
+							<div class="avatar">
+								<img src="https://cloud.githubusercontent.com/assets/398893/15152761/57cdf13c-168b-11e6-91dc-7648f35cdb45.jpg" alt="Avatar">
+							</div>
+							<div class="name">
+								<span id="chat-login">LOGIN</span>
+								<span id="chat-status" class="status">offline</span>
+							</div>
+							<div class="actions more">
+								<i class="zmdi zmdi-more-vert"></i>
+								<ul tabindex="1">
+									<li><a href="/chat-info.html">Informações</a></li>
+									<li><a href="/chat-form.html">Adicionar comando</a></li>
+								</ul>
+							</div>
+							<div class="actions attachment">
+								<i class="zmdi zmdi-attachment-alt"></i>
+							</div>
+							<div class="actions phone">
+								<i class="zmdi zmdi-phone"></i>
+							</div>
+						</div>
+						<div class="conversation light">
+							<div class="conversation-container">
+								<h4 class="informations--topic">Participantes <span class="smoth">2 DE 5</span></h4>
+
+								<figure class="informations--participants mg-bottom-md">
+									<div><img src="images/clovis.jpg" alt=""></div>
+									<figcaption class="informations--participants-legend">
+										<p class="name">Clóvis Neto</p>
+										<p class="smoth">Hi, I love CSS</p>
+									</figcaption>
+								</figure>
+
+								<figure class="informations--participants mg-bottom-md">
+									<div><img src="images/ciro.jpg" alt=""></div>
+									<figcaption class="informations--participants-legend">
+										<p class="name">Ciro</p>
+										<p class="smoth">Vamos dominar o mundo?</p>
+									</figcaption>
+								</figure>
+
+								<figure class="informations--participants mg-bottom-md">
+									<div><img src="images/lais.jpeg" alt=""></div>
+									<figcaption class="informations--participants-legend">
+										<p class="name">Laís</p>
+										<p class="smoth">ZzZzZzZzZz</p>
+									</figcaption>
+								</figure>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+<script src="scripts/vendor/socket.js"></script>
+<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>
