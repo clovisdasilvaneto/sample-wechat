@@ -23,15 +23,17 @@ function main () {
 	let user = initFakeUser();
 
 	// initLogin(ELEMS.phoneButton, AUTH_DOMAIN, REDIRECT_DOMAIN, user);
-	if(ELEMS.conversation){
+	if(ELEMS.form){
 		initConversation(MESSAGES_DOMAIN, user, ELEMS.conversation);
 		listenToMessagesReceived(MESSAGES_DOMAIN, user, ELEMS.conversation);
 		listenToMessageSubmission(MESSAGES_DOMAIN, ELEMS.form, user, ELEMS.conversation);
+	}
+
+	if(ELEMS.informationsMenu){
 		bindInformationsMenu(ELEMS);
 	}else {
 		listenToFacebookLogin(LOGIN_ELEMS, AUTH_DOMAIN, REDIRECT_DOMAIN);
 	}
-
 }
 
 function initLogin (loginElement, authEndpoint, redirectEndpoint, user) {
