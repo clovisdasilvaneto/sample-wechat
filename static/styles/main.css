@@ -26,9 +26,24 @@ body {
 	height: 100%;
 }
 
+.informations--participants.mg-bottom-md {
+	margin-bottom: 1rem;
+}
 
 .positive {
 	background: cornflowerblue;
+}
+
+.light, .conversation.light {
+	background: #fff;
+}
+
+.light p {
+	color: #000;
+}
+
+.smoth, .light .smoth {
+	color: #898a8a;
 }
 
 .text-light {
@@ -106,6 +121,10 @@ body {
 	width: 80px;
 	height: 80px;
 	margin-bottom: 1rem;
+}
+
+.light .chat-login--form {
+	width:100%;
 }
 
 .chat-login--form {
@@ -222,8 +241,12 @@ body {
 	visibility: visible;
 }
 
-.chat-login--fields input#password:focus ~ label span{
+.chat-login--fields input.bottom-message:focus ~ label span, .light .chat-login--fields input.bottom-message:focus ~ label span{
 	transform: translate3d(0, 2.4rem,0);
+}
+
+.light .chat-login--fields input:focus ~ label span {
+	transform: translate3d(0, -2.2rem, 0);
 }
 
 /* Chat Socials Buttons */
@@ -437,6 +460,42 @@ body {
   content: "";
   display: table;
   clear: both;
+}
+
+.informations--topic {
+	color: #005e54;
+	font-family: "Open Sans";
+	font-weight:400;
+}
+
+.informations--topic span {
+	float: right;
+}
+
+.informations--participants {
+	margin: 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.informations--participants div {
+	width: 50px;
+	margin-right: 19px;
+}
+
+.informations--participants img {
+	border-radius: 100%;
+	max-width: 100%;
+}
+
+.informations--participants-legend p.name {
+	margin: 4px 0 0;
+	font-size: 1.2rem;
+}
+
+.informations--participants-legend p {
+	margin: 0;
 }
 
 /* Messages */
