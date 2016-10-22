@@ -4,6 +4,7 @@ const DOMAIN = window.location.hostname.split(".").slice(-3).join(".");
 const MESSAGES_DOMAIN = 'http://data.'+ DOMAIN;
 const AUTH_DOMAIN = 'http://auth.'+ DOMAIN;
 const REDIRECT_DOMAIN = 'http://static.'+ DOMAIN;
+const BOT_DOMAIN = 'http://bot.'+ DOMAIN;
 
 const ELEMS = {
 	conversation: document.querySelector('.conversation-container'),
@@ -11,7 +12,8 @@ const ELEMS = {
 	chatStatus: document.querySelector('#chat-status'),
 	chatLogin: document.querySelector('#chat-login'),
 	phoneButton: document.querySelector('.actions.phone'),
-	informationsMenu: document.querySelector('.actions.more')
+	informationsMenu: document.querySelector('.actions.more'),
+	botForm: document.querySelector('#bot-form')
 };
 
 const LOGIN_ELEMS = {
@@ -27,16 +29,19 @@ function main () {
 		initConversation(MESSAGES_DOMAIN, user, ELEMS.conversation);
 		listenToMessagesReceived(MESSAGES_DOMAIN, user, ELEMS.conversation);
 		listenToMessageSubmission(MESSAGES_DOMAIN, ELEMS.form, user, ELEMS.conversation);
+	}else if(ELEMS.botForm){
+		submitForm(ELEMS);
 	}
 
 	if(ELEMS.informationsMenu){
 		bindInformationsMenu(ELEMS);
 	}else {
-		listenToFacebookLogin(LOGIN_ELEMS, AUTH_DOMAIN, REDIRECT_DOMAIN);
+		listenToGoogleLogin(LOGIN_ELEMS, AUTH_DOMAIN, REDIRECT_DOMAIN);
 	}
 }
 
 function initLogin (loginElement, authEndpoint, redirectEndpoint, user) {
+	loginElement.googleButton.addEventListener(click)
 	let auth = WeDeploy.auth(authEndpoint);
 	let provider = new auth.provider.Google();
 
@@ -49,10 +54,10 @@ function initLogin (loginElement, authEndpoint, redirectEndpoint, user) {
 
 
 	auth.onSignIn((loginDetails) => {
-	let {name} = loginDetails;
+		let {name} = loginDetails;
 
-	chatLogin.innerHTML = name;
-	user.name = name;
+		chatLogin.innerHTML = name;
+		user.name = name;
 	});
 }
 
@@ -68,16 +73,58 @@ function bindInformationsMenu(elems){
 }
 
 
-	function listenToFacebookLogin(loginElement, authEndpoint, redirectEndpoint){
-	console.log('pegou')
-	let auth = WeDeploy.auth();
-	let provider = new auth.provider.Facebook();
-	provider.setProviderScope("email");
+function listenToGoogleLogin(loginElement, authEndpoint, redirectEndpoint){
+	loginElement.googleButton.addEventListener('click', function(){
+		let auth = WeDeploy.auth(authEndpoint);
+		let provider = new auth.provider.Google();
 
-	auth.signInWithRedirect();
+		provider.setProviderScope('email');
+		provider.setRedirectUri(redirectEndpoint);
 
-	auth.onSignIn((user)=>{
+		loginElement.addEventListener('click', () => {
+			auth.signInWithRedirect(provider);
+		});
 
+
+		auth.onSignIn((loginDetails) => {
+			console.log(loginDetails);
+			// let {name} = loginDetails;
+			//
+			// chatLogin.innerHTML = name;
+			// user.name = name;
+			//
+			// console.log(user)
+		});
+	});
+}
+
+function submitForm(elems){
+	var form = elems.botForm,
+		command,
+		webhook;
+
+	form.querySelector('.submit').addEventListener('click', (e) => {
+		command = form.querySelector('#bot-command').value;
+		webhook = form.querySelector('#bot-webhook').value;
+
+		if (command && webhook) {
+			console.log('pegou');
+			let data = { command, webhook};
+
+			WeDeploy
+				.url(BOT_DOMAIN)
+				.path("commands")
+				.post(data)
+				.then((resp) => {
+					if(resp.succeeded()){
+						alert();
+					}else {
+						e.preventDefault();
+					}
+				});
+		}else {
+			e.preventDefault();
+		}
 	});
 }
 
